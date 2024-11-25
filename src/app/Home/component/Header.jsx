@@ -30,7 +30,7 @@ const Header = ({ toggleDarkMode, darkMode }) => {
         <button onClick={toggleDarkMode} className=''>
           {darkMode ? (<FontAwesomeIcon icon={faSun} className="text-2xl lg:-ml-60 text-yellow-500"></FontAwesomeIcon>) : (<FontAwesomeIcon icon={faMoon} className="text-3xl lg:-ml-60 text-gray-500"></FontAwesomeIcon>)}
         </button>
-        <VisitTracker/>
+        
         <div className="lg:hidden">
           <button onClick={toggleMenu} className={`flex items-center px-3 py-2 text-gray-600 border-gray-600 hover:text-gray-800 hover:border-gray-800 focus:outline-none ${darkMode ? 'text-white' : 'text-gray-600'}`}>
             {isOpen ? (
@@ -41,11 +41,11 @@ const Header = ({ toggleDarkMode, darkMode }) => {
           </button>
           {isOpen && (
             <div className={`absolute top-0 right-0 w-screen pt-40 bg-black border rounded bg-opacity-80 h-screen shadow-lg`}>
-              <Link href="/" className={`block px-4 py-2 text-white font-bold text-center hover:bg-black`}>Home</Link>
-              <Link href={'/About'} className={`block px-4 py-2 text-white font-bold text-center hover:bg-black`}>About</Link>
-              <Link href="/projects" className={`block px-4 py-2 text-white font-bold text-center hover:bg-black`}>Projects</Link>
-              <Link href="/skill" className={`block px-4 py-2 text-white  font-bold text-center hover:bg-black`}>Skills</Link>
-              <Link href={'/Contact'} className={`block px-4 py-2 text-white font-bold text-center hover:bg-black`}>Contact</Link>
+              <Link href="/" className={`block px-4 py-2 text-white font-bold text-center`}>Home</Link>
+              <Link href={'/About'} className={`block px-4 py-2 text-white font-bold text-center`}>About</Link>
+              <Link href="/projects" className={`block px-4 py-2 text-white font-bold text-center`}>Projects</Link>
+              <Link href="/skill" className={`block px-4 py-2 text-white  font-bold text-center`}>Skills</Link>
+              <Link href={'/Contact'} className={`block px-4 py-2 text-white font-bold text-center`}>Contact</Link>
             </div>
           )}
         </div>

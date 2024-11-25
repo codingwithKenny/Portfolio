@@ -13,7 +13,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
+    <div className={`app ${darkMode ? 'dark-mode' : ''}` }>
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <Hero darkMode={darkMode}/>
       <Typewrite darkMode={darkMode}/>

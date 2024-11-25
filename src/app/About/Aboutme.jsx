@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Aboutme = () => {
@@ -32,7 +33,9 @@ const Aboutme = () => {
 
         {/* Buttons */}
         <div className='flex flex-wrap'>
-          <Button className='bg-black border border-white mb-2 lg:mb-0 lg:mr-2'>View CV</Button>
+          <Link href={'/resume.pdf'}>
+          <Button className='bg-black border border-white mb-2 lg:mb-0 lg:mr-2 text-white'>View CV</Button>
+          </Link>
           <Button className='text-black border ml-0 lg:ml-2 bg-white hover:text-white'>Contact</Button>
         </div>
       </div>
