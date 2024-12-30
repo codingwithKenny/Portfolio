@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+
+@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  .app {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+   .app.dark-mode {
+    background-color: black !important;
+    color: white !important;
+    box-shadow: 2px 2px 2px 2px black;
+  }
+  .stackmode{
+    background-color: black !important;
+    color: black !important;
+    box-shadow: 2px 2px 2px 2px black; 
+  }
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  background-color: #474545;
+  box-shadow: 0 2px 4px rgb(75, 74, 74);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+  .text{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    background-image:linear-gradient(50deg,rgb(38, 36, 120),rgb(222, 35, 66));
+    background-clip: text;
+    color: transparent;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+    }
+    .herotext{
+      color: rgb(23 37 84);
+    
+    }
+    .cardstack{
+      background-image: url('https://eu-images.contentstack.com/v3/assets/blt07f68461ccd75245/blt09a2ac83e51a0e06/661ce198092eb8747525079e/programming_20evolution.jpg?width=1280&auto=webp&quality=95&format=jpg&disable=upscale');
+    
+      background-color: #ffffffa7;
+      background-blend-mode: overlay;
+
+    }
+    .stack{
+      text-align: center;
+      background-image:linear-gradient(50deg,rgb(38, 36, 120),rgb(222, 35, 66));
+      background-clip: text;
+      color: transparent;
+      transition: 0.3s ease;
+      }
+   
+    .projectimage{
+      /* transform: scale(.9); */
+    }
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations to elements */
+.animate-slideRight {
+  animation: slideRight 3s ease-out infinite forwards;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 3s ease-out infinite forwards;
+}
+
+    
+
+    
+
+    @media(max-width:764px){
+      .herotext{
+       margin-left: -30px;
+       margin-top: -50px;
+      }
+      .textname{
+        margin-left: 200px;
+      }
+      #image{
+        margin: 0;
+        margin-left:150px;
+        width: 250px;
+        height: 250px;
+        
+      }
+      .text{
+        margin-left: 90px;
+      }
+      .type{
+        margin-top: 80px;
+        font-size: 25px;
+        font-weight: bolder;
+        margin-left: 50px;
+      }
+    }
+    
+  
