@@ -29,9 +29,9 @@ const ContactInfo = () => {
             <div>
                 <p className='text-white text-2xl lg:text-3xl mb-5'>Message Me</p>
                 <Form {...form}>
-                    <Input className="w-full lg:w-96 border-white mb-3 text-white" placeholder="Full Name" {...form.register('name')} onChange={handleChange} />
-                    <Input className="w-full lg:w-96 border-white mb-3 text-white" placeholder="Email" {...form.register('email')} onChange={handleChange} />
-                    <Input className="w-full lg:w-96 border-white mb-5 text-white" placeholder="Message" {...form.register('message')} onChange={handleChange} />
+                    <Input className="w-full lg:w-96 border-white mb-3 text-black" placeholder="Full Name" {...form.register('name')} onChange={handleChange} />
+                    <Input className="w-full lg:w-96 border-white mb-3 text-black" placeholder="Email" {...form.register('email')} onChange={handleChange} />
+                    <Input className="w-full lg:w-96 border-white mb-5 text-black" placeholder="Message" {...form.register('message')} onChange={handleChange} />
                     <Button className="w-full lg:w-96 bg-white text-black" onClick={onSubmit}>Send</Button>
                 </Form>
             </div>

@@ -7,7 +7,7 @@ let transporter = nodemailer.createTransport({
   service:'Gmail',
   auth:{
       user:"okunlolaridwanat@gmail.com",
-      pass:process.env.mailpasssword
+      pass:process.env.MAIL_PASSWORD
   },
   tls: {
       rejectUnauthorized: false  // This bypasses the certificate validation

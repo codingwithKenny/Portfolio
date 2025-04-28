@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Card = ({ live, github, image }) => {
+const Card = ({ live, github, image,description }) => {
   console.log({ live, github, image }); // Check the received props
   return (
     <div className="mt-10 mb-0">
@@ -19,7 +19,7 @@ const Card = ({ live, github, image }) => {
         </div>
         <div className="px-4 py-4">
           <p className="text-center text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sit!
+            {description}
           </p>
         </div>
         <div className="px-4 py-4 flex items-center justify-center gap-4">

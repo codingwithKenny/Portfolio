@@ -19,8 +19,10 @@ const Contact = () => {
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <ContactPage/>
       <ContactInfo/>
+      <div className="w-28">
       <Icon/>
-     
+
+        </div>     
      
     </div>
   );

@@ -15,7 +15,7 @@ const Header = ({ toggleDarkMode, darkMode }) => {
   };
 
   return (
-    <header className={`header ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+    <header className={`header ${darkMode ? 'bg-black text-white' : 'bg-[#e1eef7e4]'}`}>
       <nav className="border-grey-500 shadow-md mx-auto max-w-7xl flex items-center justify-between lg:px-8 h-20">
         <div className="ml-0 mt-5">
           {/* <Logo /> */}

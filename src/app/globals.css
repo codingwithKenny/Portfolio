@@ -8,8 +8,9 @@
   @tailwind utilities;
   
   .app {
-    background-color: #ffffff;
+    background-color: #e1eef7e4;
     transition: background-color 0.3s ease, color 0.3s ease;
+    height: auto;
   }
   
    .app.dark-mode {
@@ -75,6 +76,9 @@ header {
    
     .projectimage{
       /* transform: scale(.9); */
+    }
+    #image{
+      margin-left: 100px;
     }
 @keyframes slideRight {
   0% {
