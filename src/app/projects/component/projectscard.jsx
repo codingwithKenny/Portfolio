@@ -24,8 +24,8 @@ const Pro = () => {
 
       <Card 
         image='/store.png' 
-        live='' 
-        github=''
+        live='https://riddy-store.vercel.app/' 
+        github='https://github.com/codingwithKenny/RiddyStore'
         description={
           <>
             A modern e-commerce platform with <span className="text-purple-500 font-semibold">Stripe</span> integration, secure checkout, cart management, and user-friendly navigation.
@@ -42,8 +42,8 @@ const Pro = () => {
 
       <Card 
         image='/newproject.png' 
-        live='' 
-        github=''
+        live='https://muslimgroupofschools.com/' 
+        github='https://github.com/codingwithKenny/lms'
         description="A School Management System featuring student portals for checking results, managing profiles, and tracking academic progress — designed for efficiency and accessibility."
       />
     </div>
