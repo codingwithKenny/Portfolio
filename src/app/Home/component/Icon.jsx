@@ -1,22 +1,33 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
+import React from "react";
 
 const Icon = () => {
+  const icons = [
+    { href: "https://linkedin.com/in/ridwat-okunlola-9b44ab223", icon: faLinkedin },
+    { href: "https://github.com/codingwithKenny", icon: faGithub },
+    { href: "https://twitter.com", icon: faTwitter },
+    { href: "https://wa.me/", icon: faWhatsapp },
+  ];
+
   return (
-    <div className="ml-2 lg:ml-20 -mt-60 h-28 flex flex-col space-y-4">
-      <a href="http://linkedin.com/in/ridwat-okunlola-9b44ab223">
-        <FontAwesomeIcon icon={faLinkedin} className="text-4xl" />
-      </a>
-      <a href="https://github.com/codingwithKenny">
-        <FontAwesomeIcon icon={faGithub} className="text-4xl" />
-      </a>
-      <a href="">
-        <FontAwesomeIcon icon={faTwitter} className="text-4xl" />
-      </a>
-      <a href="">
-        <FontAwesomeIcon icon={faWhatsapp} className="text-4xl" />
-      </a>
+    <div className="flex gap-6">
+      {icons.map((item, i) => (
+        <a
+          key={i}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-3xl  transition-all transform hover:scale-110 hover:drop-shadow-[0_0_8px_#ec4899]"
+        >
+          <FontAwesomeIcon icon={item.icon} />
+        </a>
+      ))}
     </div>
   );
 };

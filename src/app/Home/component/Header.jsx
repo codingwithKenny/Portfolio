@@ -1,55 +1,132 @@
-"use client"
+"use client";
 
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useState } from "react";
-import Logo from "./Logo";
-import VisitTracker from "@/app";
 
 const Header = ({ toggleDarkMode, darkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/About" },
+    { name: "Projects", href: "/projects" },
+    { name: "Skills", href: "/skill" },
+    { name: "Contact", href: "/Contact" },
+  ];
 
   return (
-    <header className={`header ${darkMode ? 'bg-black text-white' : 'bg-[#e1eef7e4]'}`}>
-      <nav className="border-grey-500 shadow-md mx-auto max-w-7xl flex items-center justify-between lg:px-8 h-20">
-        <div className="ml-0 mt-5">
-          {/* <Logo /> */}
+    <header
+  className={`fixed w-full top-0 z-50 transition-all duration-500 backdrop-blur-lg shadow-md ${
+    darkMode
+      ? "bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#0f0f1a] text-white border-b border-gray-700"
+      : "bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 border-b border-pink-200"
+  }`}
+>
+
+      <nav className="mx-auto max-w-7xl flex items-center justify-between px-6 h-20">
+        {/* Logo / Name */}
+        <Link href="/" className="text-2xl font-bold text-pink-500 tracking-wide">
+          <span className="text-gray-600">Kenny</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex lg:space-x-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`relative font-medium transition-all duration-300 hover:text-pink-500 after:content-[''] after:block after:h-[2px] after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-center">
-          <Link href="/" className={`px-4 py-2 hover:text-gray-800 ml-10`}>Home</Link>
-          <Link href={'/About'} className={`px-4 py-2 hover:text-gray-800 ml-10`}>About</Link>
-          <Link href="/projects" className={`px-4 py-2 hover:text-gray-800 ml-10`}>Project</Link>
-          <Link href="/skill" className={`px-4 py-2 hover:text-gray-800 ml-10`}>Skills</Link>
-          <Link href={'/Contact'} className={`px-4 py-2 hover:text-gray-800 ml-10`}>Contact</Link>
-        </div>
-        <button onClick={toggleDarkMode} className=''>
-          {darkMode ? (<FontAwesomeIcon icon={faSun} className="text-2xl lg:-ml-60 text-yellow-500"></FontAwesomeIcon>) : (<FontAwesomeIcon icon={faMoon} className="text-3xl lg:-ml-60 text-gray-500"></FontAwesomeIcon>)}
+
+        {/* Dark Mode Toggle */}
+        <button
+          onClick={toggleDarkMode}
+          className="p-2 rounded-full hover:scale-110 transition-transform duration-300"
+        >
+          {darkMode ? (
+            <FontAwesomeIcon
+              icon={faSun}
+              className="text-2xl text-yellow-400"
+            />
+          ) : (
+            <FontAwesomeIcon icon={faMoon} className="text-2xl text-gray-600" />
+          )}
         </button>
-        
+
+        {/* Mobile Menu Button */}
         <div className="lg:hidden">
-          <button onClick={toggleMenu} className={`flex items-center px-3 py-2 text-gray-600 border-gray-600 hover:text-gray-800 hover:border-gray-800 focus:outline-none ${darkMode ? 'text-white' : 'text-gray-600'}`}>
+          <button
+            onClick={toggleMenu}
+            className={`p-2 rounded-md focus:outline-none ${
+              darkMode ? "text-white" : "text-gray-800"
+            }`}
+          >
             {isOpen ? (
-              <svg className="h-10 w-10 z-10 text-white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Close</title><path fill="currentColor" d="M14.94 14.94a.75.75 0 0 1-1.06 0L10 11.06l-3.88 3.88a.75.75 0 0 1-1.06-1.06L8.94 10 5.06 6.12a.75.75 0 0 1 1.06-1.06L10 8.94l3.88-3.88a.75.75 0 0 1 1.06 1.06L11.06 10l3.88 3.88a.75.75 0 0 1 0 1.06z"></path></svg>
+              <svg
+                className="h-8 w-8"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             ) : (
-              <svg className="h-10 w-10 z-10" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path fill="currentColor" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+              <svg
+                className="h-8 w-8"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
             )}
           </button>
-          {isOpen && (
-            <div className={`absolute top-0 right-0 w-screen pt-40 bg-black border rounded bg-opacity-80 h-screen shadow-lg`}>
-              <Link href="/" className={`block px-4 py-2 text-white font-bold text-center`}>Home</Link>
-              <Link href={'/About'} className={`block px-4 py-2 text-white font-bold text-center`}>About</Link>
-              <Link href="/projects" className={`block px-4 py-2 text-white font-bold text-center`}>Projects</Link>
-              <Link href="/skill" className={`block px-4 py-2 text-white  font-bold text-center`}>Skills</Link>
-              <Link href={'/Contact'} className={`block px-4 py-2 text-white font-bold text-center`}>Contact</Link>
-            </div>
-          )}
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div
+          className={`lg:hidden absolute top-20 left-0 w-full transition-all duration-500 ${
+            darkMode
+              ? "bg-black/90 text-white"
+              : "bg-pink-50/95 text-gray-800"
+          }`}
+        >
+          <ul className="flex flex-col items-center py-8 space-y-6 text-lg font-semibold">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="hover:text-pink-500 transition-colors duration-300"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

@@ -1,44 +1,160 @@
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+"use client";
 
-const Aboutme = () => {
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { motion } from "framer-motion";
+
+const Aboutme = ({ darkMode }) => {
   return (
-    <div className='lg:flex sm:text-center justify-between p-5 mt-20'>
+    <div
+      className={`relative min-h-screen p-5 mt-20 transition-all duration-700 ${
+        darkMode
+          ? "bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#0f0f1a] text-white"
+          : "bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 text-slate-900"
+      } lg:flex lg:items-center lg:justify-between`}
+    >
       {/* Image Section */}
-      <div className='w-full lg:w-1/2 mb-5 lg:mb-0 lg:ml-10'>
-        <Image src="/MY PICTURE.jpg" alt="" width={450} height={450} />
-      </div>
+      <motion.div
+        className="w-full lg:w-1/2 mb-5 lg:mb-0 lg:ml-10 flex justify-center"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
+      >
+        <Image
+          src="/MY PICTURE.jpg"
+          alt="Ridwat Kenny"
+          width={450}
+          height={450}
+          className={`rounded-xl shadow-2xl border-4 ${
+            darkMode ? "border-gray-500" : "border-pink-300"
+          }`}
+        />
+      </motion.div>
 
       {/* Text Content Section */}
-      <div className='w-full lg:w-1/2 px-5 text-left'>
-        <h1 className='text-5xl font-bold mb-4'>About me.</h1>
-        <p className='mb-4'>
-          Full stack Developer
+      <motion.div
+        className="w-full lg:w-1/2 px-5 text-left"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+      >
+        <h1
+          className={`text-5xl font-extrabold mb-4 tracking-tight ${
+            darkMode ? "text-white" : "text-gray-900"
+          }`}
+        >
+          About me.
+        </h1>
+
+        <p
+          className={`mb-4 font-semibold ${
+            darkMode ? "text-pink-400" : "text-pink-500"
+          } text-lg`}
+        >
+          Full Stack Developer
         </p>
-        <p className='mb-4'>
-          I'm Okunlola Ridwat, a dedicated full stack developer driven by a passion for crafting intuitive and impactful web applications. My journey in software development began with a fascination for technology and a commitment to mastering both front-end and back-end frameworks. With proficiency in languages such as JavaScript, Python, and frameworks like React and Django, I thrive on tackling complex challenges and delivering solutions that exceed expectations.
+
+        <p
+          className={`mb-4 leading-relaxed ${
+            darkMode ? "text-gray-300" : "text-gray-700"
+          } text-base`}
+        >
+          Hi, I'm Okunlola Ridwat, a full stack developer on a mission to craft
+          meaningful digital experiences. My journey began with a fascination
+          for how technology shapes the world around us, and it quickly evolved
+          into a passion for creating tools that make life simpler, smarter, and
+          more connected.
         </p>
-        <p className='mb-4'>
-          I take pride in my ability to collaborate closely with teams and clients, ensuring that every project I work on not only meets but also exceeds its goals. Whether it's implementing responsive user interfaces or optimizing database performance, I am constantly refining my skills to stay ahead in this dynamic field. My ultimate goal is to create seamless digital experiences that resonate with users and drive business success.
+
+        <p
+          className={`mb-6 leading-relaxed ${
+            darkMode ? "text-gray-300" : "text-gray-700"
+          } text-base`}
+        >
+          From building responsive user interfaces to architecting robust
+          backend systems, I love tackling complex challenges and turning ideas
+          into functional, elegant solutions. Over time, my curiosity led me to
+          explore AI and automation — finding ways to reduce repetitive tasks,
+          streamline workflows, and enhance human productivity.
+        </p>
+        <p
+          className={`mb-6 leading-relaxed ${
+            darkMode ? "text-gray-300" : "text-gray-700"
+          } text-base`}
+        >
+          Every project I work on is an opportunity to merge creativity with
+          efficiency. I thrive on collaboration, constantly learning, and using
+          emerging technologies to solve real-world problems. My goal is to
+          create seamless, intelligent applications that not only meet
+          expectations but delight users and drive innovation.
         </p>
 
         {/* Progress Bars */}
-        <div className='mb-4'>
-          <Progress value={95} text='Frontend Development' className='mt-4' />
-          <Progress value={80} text='Backend Development' className='mt-4' />
+        <div className="mb-8 space-y-3">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "95%" }}
+            transition={{ duration: 1.2 }}
+          >
+            <Progress
+              value={95}
+              text="Frontend Development"
+              className={`rounded-full h-6 ${
+                darkMode
+                  ? "bg-gray-700 text-white"
+                  : "bg-pink-100 text-gray-900"
+              }`}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "80%" }}
+            transition={{ duration: 1.4 }}
+          >
+            <Progress
+              value={80}
+              text="Backend Development"
+              className={`rounded-full h-6 ${
+                darkMode
+                  ? "bg-gray-700 text-white"
+                  : "bg-pink-100 text-gray-900"
+              }`}
+            />
+          </motion.div>
         </div>
 
         {/* Buttons */}
-        <div className='flex flex-wrap'>
-          <Link href={'https://okunlolaridwat.cv/'}>
-          <Button className='bg-black border border-white mb-2 lg:mb-0 lg:mr-2 text-white'>View CV</Button>
+        <div className="flex flex-wrap gap-4">
+          <Link href={"https://okunlolaridwat.cv/"}>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Button
+                className={`border font-semibold transition-all duration-300 ${
+                  darkMode
+                    ? "bg-pink-500 border-pink-500 text-white hover:bg-pink-600"
+                    : "bg-black border-white text-white hover:bg-gray-800"
+                }`}
+              >
+                View CV
+              </Button>
+            </motion.div>
           </Link>
-          <Button className='text-black border ml-0 lg:ml-2 bg-white hover:text-white'>Contact</Button>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Button
+              className={`font-semibold border transition-all duration-300 ${
+                darkMode
+                  ? "text-black bg-white hover:text-white hover:bg-pink-500"
+                  : "text-black bg-white hover:text-pink-500"
+              }`}
+            >
+              Contact
+            </Button>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

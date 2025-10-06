@@ -22,6 +22,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "framer-motion": "^12.23.22",
     "lucide-react": "^0.411.0",
     "mongoose": "^8.5.1",
     "next": "14.2.5",
