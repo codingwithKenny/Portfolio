@@ -77,6 +77,13 @@ const Pro = () => {
         description="Capture ideas the moment they strike. NoteIt lets you jot notes, expand them with AI, record voice memos, and set reminders to turn every thought into action."
         stack={["Next.js", "tailwindcss"]}
       />
+      <Card
+        image="/blogpost.png"
+        // live="https://www.loom.com/share/84f0dd65102a4be590058633d6256d3a"
+        github="https://github.com/codingwithKenny/Automated-WordPress-blog"
+        description="Automated WordPress Content Pipeline – Developed an automation system that fetches articles from multiple RSS feeds, processes and expands them using OpenAI, saves the enhanced content to MongoDB, and automatically posts it to a WordPress website."
+        stack={["Wordpress", "N8n", "RSS Feeds","OpenAi", "MongoDB"]}
+      />
     </div>
   );
 };

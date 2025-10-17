@@ -129,7 +129,7 @@ const Homepage = () => {
           <Typewrite darkMode={darkMode} />
 
           <motion.a
-            href="#projects"
+            href="/projects"
             whileHover={{ scale: 1.07 }}
             whileTap={{ scale: 0.97 }}
             className="mt-6 w-full sm:w-[250px] mx-auto lg:mx-0 px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-pink-400/40 transition-all duration-300"
