@@ -15,6 +15,7 @@ const Header = ({ toggleDarkMode, darkMode }) => {
     { name: "Projects", href: "/projects" },
     { name: "Skills", href: "/skill" },
     { name: "Contact", href: "/Contact" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (
@@ -28,9 +29,9 @@ const Header = ({ toggleDarkMode, darkMode }) => {
 
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-6 h-20">
         {/* Logo / Name */}
-        <Link href="/" className="text-2xl font-bold text-pink-500 tracking-wide">
-          <span className="text-gray-600">Kenny</span>
-        </Link>
+        <Link href="/">
+        <img src="/rklogo.png" alt="" className="w-36"/>
+               </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:space-x-10">
