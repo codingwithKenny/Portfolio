@@ -1,33 +1,23 @@
 import Blog from "@/lib/models/blog";
 import { connectDB } from "@/lib/mongodb";
-import { useRouter } from "next/router";
 
-export async function GET(req, { params }) {
+export default async function handler(req, res) {
   await connectDB();
 
+  const { slug } = req.query; // ✅ Get slug from query (works for /api/blog/[slug])
+
   try {
-    const router = useRouter();
-    const { slug } = router.query;
     const blog = await Blog.findOne({ slug }).lean();
 
     if (!blog) {
-      return new Response(JSON.stringify({ error: "Blog not found" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      });
+      return res.status(404).json({ error: "Blog not found" });
     }
 
-    blog._id = blog._id.toString(); // convert ObjectId to string
+    blog._id = blog._id.toString();
 
-    return new Response(JSON.stringify(blog), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return res.status(200).json(blog);
   } catch (err) {
     console.error("Error fetching blog by slug:", err);
-    return new Response(JSON.stringify({ error: "Failed to fetch blog" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return res.status(500).json({ error: "Failed to fetch blog" });
   }
 }
