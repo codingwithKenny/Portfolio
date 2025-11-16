@@ -24,6 +24,7 @@ const Blog = () => {
         const res = await fetch("/api/blog"); // your API route
         const data = await res.json();
         setBlogs(data);
+        console.log(data)
       } catch (err) {
         console.error("Error fetching blogs:", err);
       }
