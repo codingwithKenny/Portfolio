@@ -120,7 +120,7 @@ const Blog = () => {
                   {blog.teaser}
                 </p>
                 <motion.a
-                  // href={`/blog/${blog.slug}`}
+                  href={`/blog/${blog.slug}`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
                   className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-semibold text-sm shadow-md hover:shadow-lg hover:shadow-pink-400/30 transition-all duration-300"
